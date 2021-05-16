@@ -1,4 +1,4 @@
-package com.dogs.window;
+package com.dogs.pojo;
 
 public class Rectangle extends java.awt.Rectangle {
 

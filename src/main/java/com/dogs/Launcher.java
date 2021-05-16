@@ -1,7 +1,9 @@
 package com.dogs;
 
 import com.dogs.injection.modules.PhasesModule;
-import com.dogs.injection.modules.ResourcesModule;
+import com.dogs.injection.modules.LoaderModule;
+import com.dogs.injection.providers.RectangleOffsetsProvider;
+import com.dogs.loader.RectangleOffsetsLoader;
 import com.dogs.tesseract.initializer.InitializationPhaseRetriever;
 import com.dogs.tesseract.initializer.PhaseInitializer;
 import com.google.inject.Guice;
@@ -14,7 +16,9 @@ public class Launcher {
 
     public static void main(String[] args) {
         displayLogo();
-        Injector guice = Guice.createInjector(new ResourcesModule(), new PhasesModule());
+        Injector guice = Guice.createInjector(new LoaderModule(), new PhasesModule());
+
+        RectangleOffsetsLoader instance = guice.getInstance(RectangleOffsetsLoader.class);
 
         initialiseTesseractConfigurationPhases(guice);
 

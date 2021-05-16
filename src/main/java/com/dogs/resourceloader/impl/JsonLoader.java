@@ -9,6 +9,6 @@ import java.util.Optional;
 public class JsonLoader extends ResourceLoader {
 
     public Optional<URL> getJSON(String name) {
-        return getResourceFile(name, "json", Launcher.class);
+        return getResourceFile(name, "json");
     }
 }

@@ -1,7 +1,6 @@
 package com.dogs.resourceloader;
 
 import com.dogs.Launcher;
-import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URL;
@@ -11,18 +10,13 @@ import java.util.Optional;
 public abstract class ResourceLoader {
 
 
-    @Inject
-    public ResourceLoader() {
-
-    }
-
-    protected Optional<URL> getResourceFile(String name, String extension, Class<?> context) {
+    protected Optional<URL> getResourceFile(String name, String extension) {
         String completeName = name + "." + extension;
-        log.debug("Getting resource file " + completeName + " on context " + context.getSimpleName());
-        return Optional.ofNullable(context.getResource(completeName));
+        log.debug("Getting resource file " + completeName + " on current context ");
+        return Optional.ofNullable(Thread.currentThread().getContextClassLoader().getResource(completeName));
     }
 
     public Optional<URL> getJSON(String name) {
-        return getResourceFile(name, "json", Launcher.class);
+        return getResourceFile(name, "json");
     }
 }
