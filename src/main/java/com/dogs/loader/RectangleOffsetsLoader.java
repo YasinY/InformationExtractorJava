@@ -1,6 +1,6 @@
 package com.dogs.loader;
 
-import com.dogs.models.RectanglePositions;
+import com.dogs.extensions.RectanglePositions;
 import com.dogs.resourceloader.impl.JsonLoader;
 import com.google.gson.Gson;
 import com.google.inject.Inject;

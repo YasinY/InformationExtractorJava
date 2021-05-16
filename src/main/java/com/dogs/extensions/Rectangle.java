@@ -1,10 +1,11 @@
-package com.dogs.pojo;
+package com.dogs.extensions;
 
 public class Rectangle extends java.awt.Rectangle {
 
-    public Rectangle(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Rectangle(int left, int top, int right, int bottom) {
+        super(left, top, (right - left), (bottom - top));
     }
+
 
     // x2 = x1 + 41
     @Override

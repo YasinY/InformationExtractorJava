@@ -1,6 +1,5 @@
 package com.dogs.resourceloader.impl;
 
-import com.dogs.Launcher;
 import com.dogs.resourceloader.ResourceLoader;
 
 import java.net.URL;

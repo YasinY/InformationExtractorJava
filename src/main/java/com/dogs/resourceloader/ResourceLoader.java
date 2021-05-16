@@ -1,6 +1,5 @@
 package com.dogs.resourceloader;
 
-import com.dogs.Launcher;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URL;

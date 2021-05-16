@@ -10,7 +10,6 @@ import javax.inject.Named;
 public class RectangleOffsetsProvider implements Provider<RectangleOffsetsLoader> {
 
     @Inject
-    @Named("JsonLoader")
     private JsonLoader jsonLoader;
 
     @Override
