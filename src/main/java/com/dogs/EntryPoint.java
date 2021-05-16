@@ -1,5 +1,6 @@
 package com.dogs;
 
+import com.dogs.injection.modules.FactoriesModule;
 import com.dogs.injection.modules.LoaderModule;
 import com.dogs.injection.modules.PhasesModule;
 import com.dogs.injection.modules.TesseractModule;
@@ -13,7 +14,10 @@ public class EntryPoint {
 
     public static void main(String[] args) {
         displayLogo();
-        Injector guice = Guice.createInjector(new LoaderModule(), new PhasesModule(), new TesseractModule());
+        Injector guice = Guice.createInjector(new LoaderModule(),
+                new PhasesModule(),
+                new TesseractModule(),
+                new FactoriesModule());
         new ApplicationInitializer(guice).initialiseApplication();
 
     }
