@@ -8,4 +8,5 @@ public class IngameWindow extends Window {
     public IngameWindow(WinDef.HWND reference) {
         super(reference);
     }
+
 }

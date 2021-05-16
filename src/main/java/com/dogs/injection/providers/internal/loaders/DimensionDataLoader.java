@@ -24,7 +24,7 @@ public class DimensionDataLoader {
         this.jsonLoader = jsonLoader;
     }
 
-    public void fill() {
+    public void init() {
         Gson gson = new Gson();
         Optional<URL> potentialRectanglePositions = jsonLoader.getJSON("dimension-data");
         if (potentialRectanglePositions.isEmpty()) {

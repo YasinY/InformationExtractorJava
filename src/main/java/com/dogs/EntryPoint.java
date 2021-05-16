@@ -1,9 +1,6 @@
 package com.dogs;
 
-import com.dogs.injection.modules.FactoriesModule;
-import com.dogs.injection.modules.LoaderModule;
-import com.dogs.injection.modules.PhasesModule;
-import com.dogs.injection.modules.TesseractModule;
+import com.dogs.injection.modules.*;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +14,8 @@ public class EntryPoint {
         Injector guice = Guice.createInjector(new LoaderModule(),
                 new PhasesModule(),
                 new TesseractModule(),
-                new FactoriesModule());
+                new FactoriesModule(),
+                new ExecutorsModule());
         new ApplicationInitializer(guice).initialiseApplication();
 
     }

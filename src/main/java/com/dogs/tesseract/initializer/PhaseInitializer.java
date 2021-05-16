@@ -14,7 +14,7 @@ public class PhaseInitializer {
         this.initializationPhaseRetriever = initializationPhaseRetriever;
     }
 
-    public void initialize() {
+    public void init() {
         List<Class<? extends TesseractInitializer>> classes = initializationPhaseRetriever.retrieveClassesByOrder();
         classes.forEach(aClass -> {
             try {

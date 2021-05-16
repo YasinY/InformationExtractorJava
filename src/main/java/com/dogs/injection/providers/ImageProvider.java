@@ -5,7 +5,6 @@ import com.google.inject.Provider;
 
 public class ImageProvider implements Provider<ImageLoader> {
 
-
     @Override
     public ImageLoader get() {
         return new ImageLoader();

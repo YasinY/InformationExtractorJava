@@ -10,7 +10,8 @@ public class Window implements IWindow {
         this.reference = reference;
     }
 
-    public WinDef.HWND getReference() {
+    @Override
+    public WinDef.HWND getHWND() {
         return reference;
     }
 
