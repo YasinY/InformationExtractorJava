@@ -1,21 +1,18 @@
 package com.dogs.tesseract.initializer;
 
-import com.google.inject.Inject;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class PhaseInitializer {
 
-    private final InitializationPhaseRetriever initializationPhaseRetriever;
+    private final PhaseClassFinder phaseClassFinder;
 
-    @Inject
-    public PhaseInitializer(InitializationPhaseRetriever initializationPhaseRetriever) {
-        this.initializationPhaseRetriever = initializationPhaseRetriever;
+    public PhaseInitializer(PhaseClassFinder phaseClassFinder) {
+        this.phaseClassFinder = phaseClassFinder;
     }
 
     public void init() {
-        List<Class<? extends TesseractInitializer>> classes = initializationPhaseRetriever.retrieveClassesByOrder();
+        List<Class<? extends TesseractInitializer>> classes = phaseClassFinder.findPhaseClassesByOrder();
         classes.forEach(aClass -> {
             try {
                 TesseractInitializer tesseractInitializer = aClass.getDeclaredConstructor().newInstance();

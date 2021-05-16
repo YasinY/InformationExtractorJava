@@ -2,7 +2,6 @@ package com.dogs;
 
 import com.dogs.engine.executors.WindowHookExecutorNotifier;
 import com.dogs.injection.providers.internal.loaders.DimensionDataLoader;
-import com.dogs.tesseract.initializer.InitializationPhaseRetriever;
 import com.dogs.tesseract.initializer.PhaseInitializer;
 import com.google.inject.Injector;
 
@@ -31,9 +30,7 @@ public class ApplicationInitializer {
     }
 
     private void initialiseTesseractConfigurationPhases() {
-
-        InitializationPhaseRetriever instance = injector.getInstance(InitializationPhaseRetriever.class);
-        PhaseInitializer phaseInitializer = new PhaseInitializer(instance);
-        phaseInitializer.init();
+        PhaseInitializer instance = injector.getInstance(PhaseInitializer.class);
+        instance.init();
     }
 }

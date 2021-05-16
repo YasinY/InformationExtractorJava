@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class InitializationPhaseRetriever {
+public class PhaseClassFinder {
 
-    public List<Class<? extends TesseractInitializer>> retrieveClassesByOrder() {
+    public List<Class<? extends TesseractInitializer>> findPhaseClassesByOrder() {
         Reflections reflections = new Reflections("com.dogs.tesseract.initializer");
 
         Set<Class<? extends TesseractInitializer>> subTypesOf = reflections.getSubTypesOf(TesseractInitializer.class);

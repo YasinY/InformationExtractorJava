@@ -7,7 +7,6 @@ import com.google.inject.Provider;
 
 public class WindowHookExecutorNotifierProvider implements Provider<WindowHookExecutorNotifier> {
 
-
     @Inject
     private WindowHookExecutor windowHookExecutor;
 
