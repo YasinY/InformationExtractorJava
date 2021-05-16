@@ -15,6 +15,11 @@ public class Window implements IWindow {
     }
 
     @Override
+    public void onCycle() {
+
+    }
+
+    @Override
     public void onExit() {
 
     }
