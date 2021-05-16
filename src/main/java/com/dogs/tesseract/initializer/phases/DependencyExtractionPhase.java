@@ -13,6 +13,7 @@ public class DependencyExtractionPhase implements TesseractInitializer {
 
     public static final String PLATFORM = "win32-x86-64";
 
+
     @Override
     public void initialise() {
         File tempFolder = LoadLibs.extractTessResources(PLATFORM);

@@ -1,7 +1,6 @@
-package com.dogs.loader;
+package com.dogs.injection.providers.internal.loaders;
 
-import com.dogs.extensions.RectanglePositions;
-import com.dogs.resourceloader.impl.JsonLoader;
+import com.dogs.extensions.DimensionData;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
@@ -14,35 +13,36 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 @Slf4j
-public class RectangleOffsetsLoader {
+public class DimensionDataLoader {
 
     private final JsonLoader jsonLoader;
 
-    private RectanglePositions rectanglePositions;
+    private DimensionData dimensionData;
 
     @Inject
-    public RectangleOffsetsLoader(JsonLoader jsonLoader) {
+    public DimensionDataLoader(JsonLoader jsonLoader) {
         this.jsonLoader = jsonLoader;
-        fill();
     }
 
     public void fill() {
-        log.debug("Loading potential positions..");
         Gson gson = new Gson();
-        Optional<URL> potentialRectanglePositions = jsonLoader.getJSON("rectangle_positions");
+        Optional<URL> potentialRectanglePositions = jsonLoader.getJSON("dimension-data");
         if (potentialRectanglePositions.isEmpty()) {
-            log.error("Could not find rectangle positions.");
+            log.error("Could not find dimension data.");
             return;
         }
-        log.debug("Found rectangle positions");
         URL url = potentialRectanglePositions.get();
         try {
             Reader reader = new InputStreamReader(url.openStream(), StandardCharsets.UTF_8);
-            this.rectanglePositions = gson.fromJson(reader, RectanglePositions.class);
-            log.debug(String.format("Loaded %d rectangle positions", rectanglePositions.size()));
+            this.dimensionData = gson.fromJson(reader, DimensionData.class);
+            log.debug(String.format("Loaded %d dimensions", dimensionData.size()));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public DimensionData getDimensionData() {
+        return dimensionData;
     }
 
 

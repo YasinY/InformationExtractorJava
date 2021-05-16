@@ -1,4 +1,4 @@
-package com.dogs.resourceloader.impl;
+package com.dogs.injection.providers.internal.loaders;
 
 import com.dogs.resourceloader.ResourceLoader;
 

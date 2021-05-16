@@ -1,7 +1,6 @@
 package com.dogs.injection.providers;
 
-import com.dogs.resourceloader.ResourceLoader;
-import com.dogs.resourceloader.impl.JsonLoader;
+import com.dogs.injection.providers.internal.loaders.JsonLoader;
 import com.google.inject.Provider;
 
 public class JsonProvider implements Provider<JsonLoader> {

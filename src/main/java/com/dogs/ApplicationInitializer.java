@@ -1,6 +1,6 @@
 package com.dogs;
 
-import com.dogs.loader.RectangleOffsetsLoader;
+import com.dogs.injection.providers.internal.loaders.DimensionDataLoader;
 import com.dogs.tesseract.initializer.InitializationPhaseRetriever;
 import com.dogs.tesseract.initializer.PhaseInitializer;
 import com.google.inject.Injector;
@@ -16,10 +16,13 @@ public class ApplicationInitializer {
 
 
     public void initialiseApplication() {
-
-        RectangleOffsetsLoader instance = injector.getInstance(RectangleOffsetsLoader.class);
-
+        initialiseDimensionData();
         initialiseTesseractConfigurationPhases();
+    }
+
+    private void initialiseDimensionData() {
+        DimensionDataLoader instance = injector.getInstance(DimensionDataLoader.class);
+        instance.fill();
     }
 
     private void initialiseTesseractConfigurationPhases() {
